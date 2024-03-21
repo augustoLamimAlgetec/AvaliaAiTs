@@ -16,7 +16,7 @@ class App {
         this.server.use(express.json());
         this.server.use(cors());
         this.server.use(cookieParser());
-        const upload = multer({ dest: 'uploads/' }).single('file');
+        const upload = multer({ storage: multer.memoryStorage() }).single('file');
 
         // Custom middleware function to handle file uploads
         this.server.use((req: Request, res: Response, next: NextFunction) => {
